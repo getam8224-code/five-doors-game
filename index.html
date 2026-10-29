@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f1424" />
+    <title>다섯 개의 문 · AI랑 일하는 법</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚪</text></svg>" />
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <!-- HUD -->
+    <div id="hud" class="hidden">
+      <div class="hud-card">
+        <div id="hud-stage">STAGE 1 / 5</div>
+        <div id="hud-name">말로 시키기</div>
+        <div id="hud-dots"></div>
+      </div>
+    </div>
+    <div id="prompt" class="hidden"></div>
+    <div id="toast" class="hidden"></div>
+
+    <!-- 모바일 조작 -->
+    <div id="joy" class="hidden"><div id="knob"></div></div>
+    <button id="act" class="hidden" aria-label="퀴즈 풀기">퀴즈</button>
+
+    <!-- 시작 화면 -->
+    <div id="start" class="overlay">
+      <div class="panel intro">
+        <div class="eyebrow">어제 라이브 복습 게임</div>
+        <h1>다섯 개의 문</h1>
+        <p class="lead">AI랑 일하는 다섯 가지 요령을 몸으로 익혀 봐요.<br />방마다 빛나는 수정에 다가가 퀴즈를 맞히면 다음 문이 열립니다.</p>
+        <ol class="route">
+          <li><b>1</b>말로 시키기</li>
+          <li><b>2</b>모르면 물어보게</li>
+          <li><b>3</b>기획서(PRD)부터</li>
+          <li><b>4</b>한 번에 하나씩</li>
+          <li><b>5</b>깃허브 저장 &amp; 배포</li>
+        </ol>
+        <div class="controls">
+          <div><kbd>W A S D</kbd> 또는 <kbd>방향키</kbd> 이동 · <kbd>E</kbd> / <kbd>Space</kbd> 퀴즈</div>
+          <div class="touch-only">모바일: 왼쪽 조이스틱으로 이동, 오른쪽 버튼으로 퀴즈</div>
+        </div>
+        <button id="start-btn" class="primary">시작하기</button>
+      </div>
+    </div>
+
+    <!-- 퀴즈 -->
+    <div id="quiz" class="overlay hidden">
+      <div class="panel">
+        <div class="quiz-head">
+          <span id="q-badge" class="badge">STAGE 1</span>
+          <span id="q-name" class="q-name"></span>
+        </div>
+        <div id="q-tip" class="tip"></div>
+        <h2 id="q-question"></h2>
+        <div id="q-options" class="options"></div>
+        <div id="q-feedback" class="feedback hidden"></div>
+        <div class="quiz-foot">
+          <button id="q-close" class="ghost">닫기</button>
+          <button id="q-next" class="primary hidden">문 열기 →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 엔딩 -->
+    <div id="end" class="overlay hidden">
+      <div class="panel intro">
+        <div class="eyebrow">ALL CLEAR</div>
+        <h1>다섯 개의 문 통과!</h1>
+        <p id="end-stats" class="lead"></p>
+        <ol id="end-list" class="recap"></ol>
+        <button id="again-btn" class="primary">처음부터 다시</button>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
